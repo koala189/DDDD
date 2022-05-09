@@ -1,4 +1,4 @@
-name: 'ZJU-nCov-Hitcarder Action'
+ame: 'ZJU-nCov-Hitcarder Action'
 
 on:
   workflow_dispatch:
@@ -30,11 +30,20 @@ jobs:
 #           - username: ZJU_USERNAME6
 #             password: ZJU_PASSWORD6
     steps:
-      - name: Working
-        uses: koala189/AutoHitCarder@main
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Setup Python
+        uses: actions/setup-python@v3.1.0
         with:
-          username: ${{ secrets[matrix.username] }}
-          password: ${{ secrets[matrix.password] }}
-          dingtalk_token: ${{ secrets[matrix.dingtalk_token] }}
-          pushplus_token: ${{ secrets[matrix.pushplus_token] }}
-          serverchan_key: ${{ secrets[matrix.serverchan_key] }}
+          python-version: 3.9
+      - name: Install packages
+        run: |
+          pip3 install requests
+          pip3 install ddddocr
+      - name: Clock In
+        env:
+          ACCOUNT:  ${{ secrets[matrix.username] }}
+          PASSWORD: ${{ secrets[matrix.password] }}
+          TOKEN: ${{ secrets[matrix.dingtalk_token] }}
+        run: |
+          python3 hit.py ${ACCOUNT} ${PASSWORD} ${TOKEN}
