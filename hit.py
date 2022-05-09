@@ -202,7 +202,7 @@ if __name__ == "__main__":
 
     main(username, password)
 
-    if(len(sys.argv)>2)
+    if len(sys.argv)>2
         dingtalk_token = sys.argv[3]
         ret = message.dingtalk(msg, dingtalk_token)
         print('send_dingtalk_message', ret)     
