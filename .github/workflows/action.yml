@@ -1,4 +1,4 @@
-ame: 'ZJU-nCov-Hitcarder Action'
+name: 'ZJU-nCov-Hitcarder Action'
 
 on:
   workflow_dispatch:
