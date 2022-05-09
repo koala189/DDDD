@@ -5,6 +5,7 @@ import datetime
 import time
 import sys
 import ddddocr
+import message
 
 
 class ClockIn(object):
