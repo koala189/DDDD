@@ -180,7 +180,7 @@ def main(username, password):
     try:
         res = dk.post()
         if str(res['e']) == '0':
-            return '打卡成功'
+            return '打卡成功 v2.0'
         else:
             print(res['m'])
             if res['m'].find("已经") != -1: # 已经填报过了 不报错
@@ -200,9 +200,9 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
 
-    main(username, password)
+    msg=main(username, password)
 
-#     if len(sys.argv)>2
-#         dingtalk_token = sys.argv[3]
-#         ret = message.dingtalk(msg, dingtalk_token)
-#         print('send_dingtalk_message', ret)     
+    if len(sys.argv)>2:
+        dingtalk_token = sys.argv[3]
+        ret = message.dingtalk(msg, dingtalk_token)
+        print('send_dingtalk_message', ret)     
