@@ -228,5 +228,6 @@ if __name__ == "__main__":
     
     if len(sys.argv)>2:
         dingtalk_token = sys.argv[3]
+        print('dingtalk_token',dingtalk_token)
         ret = dingtalk(msg, dingtalk_token)
         print('send_dingtalk_message', ret)     
