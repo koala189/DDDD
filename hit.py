@@ -206,7 +206,7 @@ def main(username, password):
         print("已登录到浙大统一身份认证平台")
     except Exception as err:
         print(str(err))
-        return '密码错误'
+        return '打卡失败:密码错误'
 
     print('正在获取个人信息...')
     try:
@@ -224,7 +224,7 @@ def main(username, password):
         else:
             print(res['m'])
             if res['m'].find("已经") != -1: # 已经填报过了 不报错
-                return '已经填报过了'
+                return '已经填报过了(打卡成功)'
             elif res['m'].find("验证码错误") != -1: # 验证码错误
                 print('再次尝试')
                 time.sleep(5)
