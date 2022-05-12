@@ -180,7 +180,7 @@ def serverchan(text, serverchan_key, tries=5):
             r = requests.get("https://sc.ftqq.com/" + serverchan_key
                              + ".send?text=" + text ).json()
             print(r)
-            if r["errno"] == 0:
+            if r["code"] == 0:
                 return True
         except:
             pass
