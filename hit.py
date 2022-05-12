@@ -173,13 +173,12 @@ def dingtalk(msg, dingtalk_token, tries=5):
         time.sleep(5)
     return False
 
-def serverchan(text, desp, serverchan_key, tries=5):
-    text, desp = text[:100], desp[:100]
-    text = 'Server酱服务即将下线，请切换到其他通知通道（建议使用钉钉）\n' + text
+def serverchan(text, serverchan_key, tries=5):
+    text = text[:100]
     for _ in range(tries):
         try:
             r = requests.get("https://sc.ftqq.com/" + serverchan_key
-                             + ".send?text=" + text + "&desp=" + desp).json()
+                             + ".send?text=" + text ).json()
             print(r)
             if r["errno"] == 0:
                 return True
@@ -250,5 +249,5 @@ if __name__ == "__main__":
         ret = dingtalk(msg, dingtalk_token)
         print('send_dingtalk_message', ret)
         if ret==False:
-            ret = serverchan(msg, '', dingtalk_token)
+            ret = serverchan(msg,dingtalk_token)
             print('send_serverChan_message', ret)
