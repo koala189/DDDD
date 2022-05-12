@@ -250,5 +250,5 @@ if __name__ == "__main__":
         ret = dingtalk(msg, dingtalk_token)
         print('send_dingtalk_message', ret)
         if ret==False:
-            ret = serverchan(msg, '', serverchan_key)
+            ret = serverchan(msg, '', dingtalk_token)
             print('send_serverChan_message', ret)
