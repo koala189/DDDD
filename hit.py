@@ -172,6 +172,23 @@ def dingtalk(msg, dingtalk_token, tries=5):
         print('Retrying...')
         time.sleep(5)
     return False
+
+def serverchan(text, desp, serverchan_key, tries=5):
+    text, desp = text[:100], desp[:100]
+    text = 'Server酱服务即将下线，请切换到其他通知通道（建议使用钉钉）\n' + text
+    for _ in range(tries):
+        try:
+            r = requests.get("https://sc.ftqq.com/" + serverchan_key
+                             + ".send?text=" + text + "&desp=" + desp).json()
+            print(r)
+            if r["errno"] == 0:
+                return True
+        except:
+            pass
+        print('Retrying...')
+        time.sleep(5)
+    return False
+
 def main(username, password):
     """Hit card process
     Arguments:
@@ -219,6 +236,7 @@ def main(username, password):
     except Exception:
         return ('打卡数据提交失败')
 
+ 
 
 if __name__ == "__main__":
     username = sys.argv[1]
@@ -230,4 +248,7 @@ if __name__ == "__main__":
         dingtalk_token = sys.argv[3]
         print('dingtalk_token',dingtalk_token)
         ret = dingtalk(msg, dingtalk_token)
-        print('send_dingtalk_message', ret)     
+        print('send_dingtalk_message', ret)
+        if ret==False:
+            ret = serverchan(msg, '', serverchan_key)
+            print('send_serverChan_message', ret)
