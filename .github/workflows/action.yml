@@ -15,42 +15,33 @@ jobs:
           - username: ZJU_USERNAME
             password: ZJU_PASSWORD
             dingtalk_token: DINGTALK_TOKEN
-          - username: ZJU_USERNAME1
-            password: ZJU_PASSWORD1
-            dingtalk_token: DINGTALK_TOKEN1
-          - username: ZJU_USERNAME2
-            password: ZJU_PASSWORD2
-            dingtalk_token: DINGTALK_TOKEN2
-          - username: ZJU_USERNAME3
-            password: ZJU_PASSWORD3
-            dingtalk_token: DINGTALK_TOKEN3
-          - username: ZJU_USERNAME4
-            password: ZJU_PASSWORD4
-          - username: ZJU_USERNAME5
-            password: ZJU_PASSWORD5
-          - username: ZJU_USERNAME6
-            password: ZJU_PASSWORD6
-          - username: ZJU_USERNAME7
-            password: ZJU_PASSWORD7
-          - username: ZJU_USERNAME8
-            password: ZJU_PASSWORD8
-          - username: ZJU_USERNAME9
+#           - username: ZJU_USERNAME1
+#             password: ZJU_PASSWORD1
+#             dingtalk_token: DINGTALK_TOKEN1
+#           - username: ZJU_USERNAME2
+#             password: ZJU_PASSWORD2
+#             dingtalk_token: DINGTALK_TOKEN2
+#           - username: ZJU_USERNAME3
+#             password: ZJU_PASSWORD3
+#             dingtalk_token: DINGTALK_TOKEN3
+#           - username: ZJU_USERNAME4
+#             password: ZJU_PASSWORD4
+#           - username: ZJU_USERNAME5
+#             password: ZJU_PASSWORD5
+#           - username: ZJU_USERNAME6
+#             password: ZJU_PASSWORD6
+#           - username: ZJU_USERNAME7
+#             password: ZJU_PASSWORD7
+#           - username: ZJU_USERNAME8
+#             password: ZJU_PASSWORD8
+#           - username: ZJU_USERNAME9
             password: ZJU_PASSWORD9
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Setup Python
-        uses: actions/setup-python@v3.1.0
+      - name: Working
+        uses: koala148/zju-ncov-hitcarder@master
         with:
-          python-version: 3.9
-      - name: Install packages
-        run: |
-          pip3 install requests
-          pip3 install ddddocr
-      - name: Clock In
-        env:
-          ACCOUNT:  ${{ secrets[matrix.username] }}
-          PASSWORD: ${{ secrets[matrix.password] }}
-          TOKEN: ${{ secrets[matrix.dingtalk_token] }}
-        run: |
-          python3 hit.py ${ACCOUNT} ${PASSWORD} ${TOKEN}
+          username: ${{ secrets[matrix.username] }}
+          password: ${{ secrets[matrix.password] }}
+          dingtalk_token: ${{ secrets[matrix.dingtalk_token] }}
+          pushplus_token: ${{ secrets[matrix.pushplus_token] }}
+          serverchan_key: ${{ secrets[matrix.serverchan_key] }}
