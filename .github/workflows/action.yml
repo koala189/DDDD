@@ -38,7 +38,7 @@ jobs:
 #             password: ZJU_PASSWORD9
     steps:
       - name: Working
-        uses: koala189/AutoHitCarder@master
+        uses: koala189/AutoHitCarder@main
         with:
           username: ${{ secrets[matrix.username] }}
           password: ${{ secrets[matrix.password] }}
