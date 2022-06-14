@@ -37,6 +37,8 @@ jobs:
 #           - username: ZJU_USERNAME9
 #             password: ZJU_PASSWORD9
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Working
         uses: koala189/AutoHitCarder@main
         with:
