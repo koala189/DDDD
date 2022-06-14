@@ -35,7 +35,7 @@ jobs:
 #           - username: ZJU_USERNAME8
 #             password: ZJU_PASSWORD8
 #           - username: ZJU_USERNAME9
-            password: ZJU_PASSWORD9
+#             password: ZJU_PASSWORD9
     steps:
       - name: Working
         uses: koala148/zju-ncov-hitcarder@master
