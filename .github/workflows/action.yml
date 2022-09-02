@@ -26,6 +26,8 @@ jobs:
             password: ZJU_PASSWORD3
           - username: ZJU_USERNAME5
             password: ZJU_PASSWORD5
+          - username: ZJU_USERNAME6
+            password: ZJU_PASSWORD6
           
     steps:
       - name: Checkout
