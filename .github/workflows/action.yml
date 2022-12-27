@@ -18,8 +18,8 @@ jobs:
           - username: ZJU_USERNAME1
             password: ZJU_PASSWORD1
             dingtalk_token: DINGTALK_TOKEN1
-          - username: ZJU_USERNAME2
-            password: ZJU_PASSWORD2
+#           - username: ZJU_USERNAME2
+#             password: ZJU_PASSWORD2
           - username: ZJU_USERNAME4
             password: ZJU_PASSWORD4
           - username: ZJU_USERNAME3
